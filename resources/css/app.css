@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -7,86 +6,71 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
 }
 
-.mono { font-family: 'JetBrains Mono', monospace; }
-
 :root {
-    --bg-page: #f5f4f0;
-    --bg-card: #ffffff;
-    --bg-nav: #ffffff;
-    --text-primary: #1c1917;
-    --text-secondary: #79716b;
-    --text-muted: #a8a29e;
-    --border: #e7e5e4;
-    --input-bg: #f5f4f0;
-    --shadow-card: 0 1px 3px rgba(0,0,0,0.04);
-    --shadow-hover: 0 12px 30px rgba(0,0,0,0.1);
+    --page: #f2f0ed;
+    --surface: #ffffff;
+    --nav: rgba(255, 255, 255, 0.85);
+    --teks: #1c1917;
+    --teks-second: #78716c;
+    --teks-muted: #a8a29e;
+    --garis: #e3dfda;
+    --ungu: #7c3aed;
+    --ungu-hover: #6d28d9;
+    --ungu-lembut: rgba(124, 58, 237, 0.08);
+    --ungu-bg: #f5f0ff;
 }
 
 body.dark {
-    --bg-page: #1a1817;
-    --bg-card: #242120;
-    --bg-nav: #1a1817;
-    --text-primary: #e7e5e4;
-    --text-secondary: #a8a29e;
-    --text-muted: #79716b;
-    --border: #2e2a28;
-    --input-bg: #242120;
-    --shadow-card: 0 1px 3px rgba(0,0,0,0.2);
-    --shadow-hover: 0 12px 30px rgba(0,0,0,0.3);
+    --page: #141211;
+    --surface: #1f1d1b;
+    --nav: rgba(20, 18, 17, 0.88);
+    --teks: #e7e5e4;
+    --teks-second: #a8a29e;
+    --teks-muted: #78716c;
+    --garis: #2e2a28;
+    --ungu: #8b5cf6;
+    --ungu-hover: #a78bfa;
+    --ungu-lembut: rgba(139, 92, 246, 0.12);
+    --ungu-bg: #1c1a24;
 }
 
 body {
-    background: var(--bg-page);
-    color: var(--text-primary);
-    transition: background 0.3s, color 0.3s;
+    background: var(--page);
+    color: var(--teks);
+    font-family: 'Inter', sans-serif;
+    transition: background 0.25s, color 0.25s;
 }
 
-.nav-bar { background: var(--bg-nav); border-color: var(--border); }
-.card-dark { background: var(--bg-card); border-color: var(--border); }
-.border-subtle { border-color: var(--border); }
-.text-muted { color: var(--text-muted); }
-.text-secondary { color: var(--text-secondary); }
+.nav-wrap {
+    background: var(--nav);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--garis);
+}
 
-.theme-toggle {
-    width: 36px; height: 36px; border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; transition: all 0.2s;
-    border: 1px solid var(--border);
-    background: var(--bg-card);
-    color: var(--text-secondary);
+.card {
+    background: var(--surface);
+    border: 1px solid var(--garis);
 }
-.theme-toggle:hover { border-color: #7c3aed; color: #7c3aed; }
 
-#disclaimer-overlay {
-    position: fixed; inset: 0; z-index: 9999;
-    background: rgba(0,0,0,0.6);
-    display: flex; align-items: center; justify-content: center;
-    padding: 1.5rem;
-    backdrop-filter: blur(4px);
+.tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    background: var(--ungu-lembut);
+    color: var(--ungu);
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    font-weight: 500;
 }
-#disclaimer-box {
-    background: var(--bg-card); color: var(--text-primary);
-    max-width: 420px; width: 100%;
-    border-radius: 1rem; padding: 2rem;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
-    text-align: center;
-    border: 1px solid var(--border);
+
+.mono {
+    font-family: 'JetBrains Mono', monospace;
 }
-#disclaimer-box h2 {
-    font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;
+
+.purple {
+    color: var(--ungu);
 }
-#disclaimer-box p {
-    font-size: 0.875rem; color: var(--text-secondary);
-    line-height: 1.6; margin-bottom: 1.5rem;
-}
-#disclaimer-box button {
-    background: #7c3aed; color: white; border: none;
-    padding: 0.75rem 2rem; border-radius: 0.5rem;
-    font-weight: 600; font-size: 0.875rem;
-    cursor: pointer; transition: background 0.2s;
-}
-#disclaimer-box button:hover { background: #6d28d9; }
