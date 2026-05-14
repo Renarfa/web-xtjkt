@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+:root {
+    --bg-page: #f5f4f0;
+    --bg-card: #ffffff;
+    --bg-nav: #ffffff;
+    --text-primary: #1c1917;
+    --text-secondary: #79716b;
+    --text-muted: #a8a29e;
+    --border: #e7e5e4;
+    --input-bg: #f5f4f0;
+    --shadow-card: 0 1px 3px rgba(0,0,0,0.04);
+    --shadow-hover: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+body.dark {
+    --bg-page: #1a1817;
+    --bg-card: #242120;
+    --bg-nav: #1a1817;
+    --text-primary: #e7e5e4;
+    --text-secondary: #a8a29e;
+    --text-muted: #79716b;
+    --border: #2e2a28;
+    --input-bg: #242120;
+    --shadow-card: 0 1px 3px rgba(0,0,0,0.2);
+    --shadow-hover: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+body {
+    background: var(--bg-page);
+    color: var(--text-primary);
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-bar { background: var(--bg-nav); border-color: var(--border); }
+.card-dark { background: var(--bg-card); border-color: var(--border); }
+.border-subtle { border-color: var(--border); }
+.text-muted { color: var(--text-muted); }
+.text-secondary { color: var(--text-secondary); }
+
+.theme-toggle {
+    width: 36px; height: 36px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.2s;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+}
+.theme-toggle:hover { border-color: #7c3aed; color: #7c3aed; }
+
+#disclaimer-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.6);
+    display: flex; align-items: center; justify-content: center;
+    padding: 1.5rem;
+    backdrop-filter: blur(4px);
+}
+#disclaimer-box {
+    background: var(--bg-card); color: var(--text-primary);
+    max-width: 420px; width: 100%;
+    border-radius: 1rem; padding: 2rem;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+    text-align: center;
+    border: 1px solid var(--border);
+}
+#disclaimer-box h2 {
+    font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;
+}
+#disclaimer-box p {
+    font-size: 0.875rem; color: var(--text-secondary);
+    line-height: 1.6; margin-bottom: 1.5rem;
+}
+#disclaimer-box button {
+    background: #7c3aed; color: white; border: none;
+    padding: 0.75rem 2rem; border-radius: 0.5rem;
+    font-weight: 600; font-size: 0.875rem;
+    cursor: pointer; transition: background 0.2s;
+}
+#disclaimer-box button:hover { background: #6d28d9; }
